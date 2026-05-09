@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+func calculateCalories(activity string, duration int, intensity float64) float64 {
+    
+  var baseCaloriesPerMinute float64
+    
+  switch activity {
+       case "running":
+            baseCaloriesPerMinute = 10.0
+       case "swimming":
+            baseCaloriesPerMinute = 8.0
+       case "cycling":
+            baseCaloriesPerMinute = 7.0
+       default: 
+            baseCaloriesPerMinute = 5.0
+    }
+    calories := baseCaloriesPerMinute * float64(duration) * intensity 
+    return  calories
+
+}
+
+func main() {
+    fmt.Println("Running for 30 minutes at intensity 1.2:", calculateCalories("running", 30, 1.2))
+    fmt.Println("Swimming for 45 minutes at intensity 1.0:", calculateCalories("swimming", 45, 1.0))
+    fmt.Println("Cycling for 60 minutes at intensity 1.5:", calculateCalories("cycling", 60, 1.5))
+    fmt.Println("Yoga for 60 minutes at intensity 0.8:", calculateCalories("yoga", 60, 0.8))
+}
